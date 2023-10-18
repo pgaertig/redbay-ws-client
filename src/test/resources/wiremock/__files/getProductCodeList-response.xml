@@ -1,0 +1,44 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+                   xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="urn:GizaAPI"
+                   xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns1:getProductCodeListResponse>
+            <result SOAP-ENC:arrayType="ns1:ProductCode[8]" xsi:type="SOAP-ENC:Array">
+                <item xsi:type="ns1:ProductCode">
+                    <id xsi:type="xsd:string">484462356</id>
+                    <code xsi:type="xsd:string">TERRAW100/70/60</code>
+                </item>
+                <item xsi:type="ns1:ProductCode">
+                    <id xsi:type="xsd:string">484462357</id>
+                    <code xsi:type="xsd:string">E440</code>
+                </item>
+                <item xsi:type="ns1:ProductCode">
+                    <id xsi:type="xsd:string">484462358</id>
+                    <code xsi:type="xsd:string">E410</code>
+                </item>
+                <item xsi:type="ns1:ProductCode">
+                    <id xsi:type="xsd:string">484462359</id>
+                    <code xsi:type="xsd:string">V78</code>
+                </item>
+                <item xsi:type="ns1:ProductCode">
+                    <id xsi:type="xsd:string">484462360</id>
+                    <code xsi:type="xsd:string">RFD3PC23X</code>
+                </item>
+                <item xsi:type="ns1:ProductCode">
+                    <id xsi:type="xsd:string">484462361</id>
+                    <code xsi:type="xsd:string">RFD3P39T5</code>
+                </item>
+                <item xsi:type="ns1:ProductCode">
+                    <id xsi:type="xsd:string">484462362</id>
+                    <code xsi:type="xsd:string">FFEEFJ35</code>
+                </item>
+                <item xsi:type="ns1:ProductCode">
+                    <id xsi:type="xsd:string">484462363</id>
+                    <code xsi:type="xsd:string">FCS120XF</code>
+                </item>
+            </result>
+        </ns1:getProductCodeListResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

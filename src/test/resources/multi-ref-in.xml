@@ -1,0 +1,128 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+                   xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="urn:GizaAPI"
+                   xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns1:takeProductResponse>
+            <result xsi:type="ns1:Product">
+                <id xsi:type="xsd:integer">484462356</id>
+                <tax id="ref1" xsi:type="ns1:Tax">
+                    <id xsi:type="xsd:integer">3</id>
+                    <name xsi:type="xsd:string">23%</name>
+                    <percent xsi:type="xsd:integer">23</percent>
+                </tax>
+                <unit id="ref2" xsi:type="ns1:Unit">
+                    <id xsi:type="xsd:integer">75435</id>
+                    <name xsi:type="xsd:string">szt.</name>
+                    <short xsi:type="xsd:string">Sztuka</short>
+                </unit>
+                <producer id="ref3" xsi:type="ns1:Producer">
+                    <id xsi:type="xsd:integer">38534741</id>
+                    <name xsi:type="xsd:string">Brak</name>
+                    <active xsi:type="xsd:string">Y</active>
+                </producer>
+                <pkwiu xsi:type="xsd:string"/>
+                <weight xsi:type="xsd:string">0.0000</weight>
+                <url xsi:type="xsd:string"/>
+                <active xsi:type="xsd:string">I</active>
+                <code xsi:type="xsd:string">TERRAW100/70/60</code>
+                <translations SOAP-ENC:arrayType="ns1:Translation[3]" xsi:type="SOAP-ENC:Array">
+                    <item xsi:type="ns1:Translation">
+                        <language id="ref4" xsi:type="ns1:Language">
+                            <id xsi:type="xsd:integer">1</id>
+                            <name xsi:type="xsd:string">Polski</name>
+                            <iso xsi:type="xsd:string">pl</iso>
+                        </language>
+                        <type xsi:type="xsd:string">N</type>
+                        <value xsi:type="xsd:string">100/70/60</value>
+                        <product id="ref5" xsi:type="ns1:Product">
+                            <id xsi:type="xsd:integer">484462356</id>
+                            <tax href="#ref1"/>
+                            <unit href="#ref2"/>
+                            <producer href="#ref3"/>
+                            <pkwiu xsi:type="xsd:string"/>
+                            <weight xsi:type="xsd:string">0.0000</weight>
+                            <url xsi:type="xsd:string"/>
+                            <active xsi:type="xsd:string">I</active>
+                            <code xsi:type="xsd:string">TERRAW100/70/60</code>
+                            <translations SOAP-ENC:arrayType="ns1:Translation[2]" xsi:type="SOAP-ENC:Array">
+                                <item xsi:type="ns1:Translation">
+                                    <language href="#ref4"/>
+                                    <type xsi:type="xsd:string">N</type>
+                                    <value xsi:type="xsd:string">100/70/60</value>
+                                    <product href="#ref5"/>
+                                </item>
+                                <item xsi:type="ns1:Translation">
+                                    <language href="#ref4"/>
+                                    <type xsi:type="xsd:string">S</type>
+                                    <value xsi:type="xsd:string">100/70/60</value>
+                                    <product href="#ref5"/>
+                                </item>
+                            </translations>
+                            <variants SOAP-ENC:arrayType="ns1:Variant[1]" xsi:type="SOAP-ENC:Array">
+                                <item id="ref6" xsi:type="ns1:Variant">
+                                    <id xsi:type="xsd:integer">1023903073</id>
+                                    <product href="#ref5"/>
+                                    <code xsi:type="xsd:string">TERRAW100/70/60</code>
+                                    <ean1 xsi:type="xsd:string"/>
+                                    <ean2 xsi:type="xsd:string"/>
+                                    <ean3 xsi:type="xsd:string"/>
+                                    <weight xsi:type="xsd:decimal">0.0000</weight>
+                                    <attributes SOAP-ENC:arrayType="ns1:Attribute[0]" xsi:type="SOAP-ENC:Array"/>
+                                    <photos SOAP-ENC:arrayType="ns1:ProductPhoto[0]" xsi:type="SOAP-ENC:Array"/>
+                                    <stocks SOAP-ENC:arrayType="ns1:Stock[0]" xsi:type="SOAP-ENC:Array"/>
+                                </item>
+                            </variants>
+                            <categories xsi:nil="true"/>
+                            <photos SOAP-ENC:arrayType="ns1:ProductPhoto[0]" xsi:type="SOAP-ENC:Array"/>
+                        </product>
+                    </item>
+                    <item xsi:type="ns1:Translation">
+                        <language href="#ref4"/>
+                        <type xsi:type="xsd:string">S</type>
+                        <value xsi:type="xsd:string">100/70/60</value>
+                        <product href="#ref5"/>
+                    </item>
+                    <item xsi:type="ns1:Translation">
+                        <language href="#ref4"/>
+                        <type xsi:type="xsd:string">D</type>
+                        <value xsi:nil="true"/>
+                        <product xsi:type="ns1:Product">
+                            <id xsi:nil="true"/>
+                            <tax xsi:type="ns1:Tax">
+                                <id xsi:nil="true"/>
+                                <name xsi:nil="true"/>
+                                <percent xsi:nil="true"/>
+                            </tax>
+                            <unit xsi:type="ns1:Unit">
+                                <id xsi:nil="true"/>
+                                <name xsi:nil="true"/>
+                                <short xsi:nil="true"/>
+                            </unit>
+                            <producer xsi:type="ns1:Producer">
+                                <id xsi:nil="true"/>
+                                <name xsi:nil="true"/>
+                                <active xsi:nil="true"/>
+                            </producer>
+                            <pkwiu xsi:type="xsd:string"/>
+                            <weight xsi:nil="true"/>
+                            <url xsi:type="xsd:string"/>
+                            <active xsi:type="xsd:string">Y</active>
+                            <code xsi:nil="true"/>
+                            <translations SOAP-ENC:arrayType="ns1:Translation[0]" xsi:type="SOAP-ENC:Array"/>
+                            <variants SOAP-ENC:arrayType="ns1:Variant[0]" xsi:type="SOAP-ENC:Array"/>
+                            <categories xsi:nil="true"/>
+                            <photos SOAP-ENC:arrayType="ns1:ProductPhoto[0]" xsi:type="SOAP-ENC:Array"/>
+                        </product>
+                    </item>
+                </translations>
+                <variants SOAP-ENC:arrayType="ns1:Variant[1]" xsi:type="SOAP-ENC:Array">
+                    <item href="#ref6"/>
+                </variants>
+                <categories SOAP-ENC:arrayType="ns1:Category[0]" xsi:type="SOAP-ENC:Array"/>
+                <photos SOAP-ENC:arrayType="ns1:ProductPhoto[0]" xsi:type="SOAP-ENC:Array"/>
+            </result>
+        </ns1:takeProductResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

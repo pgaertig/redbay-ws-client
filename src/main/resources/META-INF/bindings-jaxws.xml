@@ -1,0 +1,8 @@
+<bindings
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns="https://jakarta.ee/xml/ns/jaxws">
+    <bindings node="wsdl:definitions">
+        <package name="pl.redbay.ws.client" />
+        <!--enableAsyncMapping>true</enableAsyncMapping-->
+    </bindings>
+</bindings>

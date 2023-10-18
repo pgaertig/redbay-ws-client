@@ -1,0 +1,1 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><ns1:createTicket xmlns:ns1="urn:GizaAPI"><serviceKey>REDBAYA-987654321</serviceKey><identifier>123</identifier><password>123456789</password></ns1:createTicket></soap:Body></soap:Envelope>

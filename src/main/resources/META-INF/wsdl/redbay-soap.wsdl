@@ -1,0 +1,2397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+             xmlns:si="http://soapinterop.org/xsd" xmlns:tns="urn:GizaAPI"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+             xmlns:typens="urn:GizaAPI" 
+             xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:GizaAPI">
+    <types>
+        <xsd:schema targetNamespace="urn:GizaAPI">
+            <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+            <!-- Array types -->
+            <xsd:complexType name="ArrayOfIntegers">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="xsd:integer"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfStrings">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfDatetimes">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="xsd:dateTime"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfObjects">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Object"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfVariantStocks">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:VariantStock"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfAttributes">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Attribute"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfJournals">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Journal"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfPhotos">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Photo"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfNews">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:News"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfBanners">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Banner"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfParams">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Param"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfClassifiedStats">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ClassifiedStat"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfCategoryTranslations">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:CategoryTranslation"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfProps">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Props"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfCats">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Cats"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfErrors">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfSimpleProducts">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:SimpleProduct"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfProductPhotos">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ProductPhoto"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfVariantPhotos">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ProductPhoto"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfProducts">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Product"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfVariants">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Variant"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfSimpleVariants">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:SimpleVariant"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfCategories">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Category"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfProperties">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Property"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfTaxes">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Tax"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfTranslations">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Translation"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfUnits">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Unit"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfStocks">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Stock"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfPropertyConditions">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:PropertyConditions"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfSettings">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Setting"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfInformations">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Information"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfPages">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Page"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfPositions">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Position"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfOrderHistory">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:OrderHistory"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfOrderProperties">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:OrderProperty"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfPositionSettings">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:PositionSetting"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfProducers">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Producer"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfIntegrationAccounts">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:IntegrationAccount"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfIntegrationProducts">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:IntegrationProduct"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfChanges">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Change"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="TaxesCollection">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Tax"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="UnitsCollection">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Unit"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="SettingsCollection">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Setting"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Object">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="String" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ProductCodeCollection">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ProductCode"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <!-- Simple types -->
+            <xsd:complexType name="Ticket">
+                <xsd:all>
+                    <xsd:element name="session" type="xsd:string" nillable="1"/>
+                    <xsd:element name="deadline" type="xsd:dateTime" nillable="1"/>
+                    <xsd:element name="localTime" type="xsd:dateTime" nillable="1"/>
+                    <xsd:element name="shopName" type="xsd:string" nillable="1"/>
+                    <!-- Limit of shares to be used in this ticket. If the limit is exceeded access to the site will be blocked. -->
+                    <xsd:element name="actionsLimit" type="xsd:integer" nillable="1"/>
+                    <!-- Limit tickets to use for the customer. If the limit is exceeded access to the site will be blocked. -->
+                    <xsd:element name="ticketsLimit" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="comment" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Authorization">
+                <xsd:all>
+                    <xsd:element name="serviceKey" type="xsd:string" nillable="1"/>
+                    <xsd:element name="identifier" type="xsd:string" nillable="1"/>
+                    <xsd:element name="password" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Category">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:string" nillable="1"/>
+                    <xsd:element name="srcid" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="active" type="xsd:string" nillable="1"/>
+                    <xsd:element name="mainpage" type="xsd:string" nillable="1"/>
+                    <xsd:element name="metatitle" type="xsd:string" nillable="1"/>
+                    <xsd:element name="metadescription" type="xsd:string" nillable="1"/>
+                    <xsd:element name="translations" type="tns:ArrayOfCategoryTranslations" nillable="1"/>
+                    <xsd:element name="childs" type="tns:ArrayOfCategories" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Cats">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:string" nillable="1"/>
+                    <xsd:element name="parent" type="tns:Cats" nillable="1"/>
+                    <xsd:element name="name" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="ClassifiedStat">
+                <xsd:all>
+                    <xsd:element name="brand" type="xsd:string" nillable="1"/>
+                    <xsd:element name="model" type="xsd:string" nillable="1"/>
+                    <xsd:element name="build" type="xsd:string" nillable="1"/>
+                    <xsd:element name="counter" type="xsd:decimal" nillable="1"/>
+                    <xsd:element name="minprice" type="xsd:decimal" nillable="1"/>
+                    <xsd:element name="maxprice" type="xsd:decimal" nillable="1"/>
+                    <xsd:element name="avarage" type="xsd:decimal" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Journal">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="type" type="xsd:string" nillable="1"/>
+                    <xsd:element name="objectid" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="added" type="xsd:dateTime" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="OrderHistory">
+                <xsd:all>
+                    <xsd:element name="added" type="xsd:dateTime" nillable="1"/>
+                    <xsd:element name="status" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="OrderProperty">
+                <xsd:all>
+                    <xsd:element name="name" type="xsd:string" nillable="1"/>
+                    <xsd:element name="value" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="PositionSetting">
+                <xsd:all>
+                    <xsd:element name="name" type="xsd:string" nillable="1"/>
+                    <xsd:element name="value" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="SimpleVariant">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:string" nillable="1"/>
+                    <xsd:element name="code" type="xsd:string" nillable="1"/>
+                    <xsd:element name="ean" type="xsd:string" nillable="1"/>
+                    <xsd:element name="quantity" type="xsd:decimal" nillable="1"/>
+                    <xsd:element name="price" type="xsd:decimal" nillable="1"/>
+                    <xsd:element name="properties" type="tns:ArrayOfProps" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Props">
+                <xsd:all>
+                    <xsd:element name="name" type="xsd:string" nillable="1"/>
+                    <xsd:element name="value" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="CategoryTranslation">
+                <xsd:all>
+                    <xsd:element name="value" type="xsd:string" nillable="1"/>
+                    <xsd:element name="language" type="tns:Language" nillable="1"/>
+                    <xsd:element name="type" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Attribute">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:string" nillable="1"/>
+                    <xsd:element name="property" type="tns:Property" nillable="1"/>
+                    <xsd:element name="value" type="xsd:string" nillable="1"/>
+                    <xsd:element name="active" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Setting">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:string" nillable="1"/>
+                    <xsd:element name="name" type="xsd:string" nillable="1"/>
+                    <xsd:element name="edited" type="xsd:string" nillable="1"/>
+                    <xsd:element name="type" type="xsd:string" nillable="1"/>
+                    <xsd:element name="value" type="xsd:string" nillable="1"/>
+                    <xsd:element name="active" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Language">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="name" type="xsd:string" nillable="1"/>
+                    <xsd:element name="iso" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Currency">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="symbol" type="xsd:string" nillable="1"/>
+                    <xsd:element name="coursetopln" type="xsd:decimal" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="News">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="added" type="xsd:dateTime" nillable="1"/>
+                    <xsd:element name="title" type="xsd:string" nillable="1"/>
+                    <xsd:element name="message" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Banner">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="added" type="xsd:dateTime" nillable="1"/>
+                    <xsd:element name="title" type="xsd:string" nillable="1"/>
+                    <xsd:element name="body" type="xsd:string" nillable="1"/>
+                    <xsd:element name="banner" type="xsd:string" nillable="1"/>
+                    <xsd:element name="url" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Param">
+                <xsd:all>
+                    <xsd:element name="name" type="xsd:string" nillable="1"/>
+                    <xsd:element name="value" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="VariantStock">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="code" type="xsd:string" nillable="1"/>
+                    <xsd:element name="quantity" type="xsd:integer" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Resource">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:int" nillable="1"/>
+                    <xsd:element name="title" type="xsd:string" nillable="1"/>
+                    <xsd:element name="description" type="xsd:string" nillable="1"/>
+                    <xsd:element name="filetype" type="xsd:string" nillable="1"/>
+                    <xsd:element name="filename" type="xsd:string" nillable="1"/>
+                    <xsd:element name="data" type="xsd:base64Binary" nillable="1" />
+                    <xsd:element name="options" type="xsd:int" nillable="1" />
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="IntegrationProduct">
+                <xsd:all>
+                    <xsd:element name="variant" type="xsd:string" nillable="1"/>
+                    <xsd:element name="product" type="xsd:string" nillable="1"/>
+                    <xsd:element name="name" type="xsd:string" nillable="1"/>
+                    <xsd:element name="props" type="xsd:string" nillable="1"/>
+                    <xsd:element name="accounts" type="tns:ArrayOfIntegrationAccounts" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Change">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="active" type="xsd:string" nillable="1"/>
+                    <xsd:element name="price" type="xsd:decimal" nillable="1"/>
+                    <xsd:element name="modified" type="xsd:dateTime" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="IntegrationAccount">
+                <xsd:all>
+                    <xsd:element name="login" type="xsd:string" nillable="1"/>
+                    <xsd:element name="enabled" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Product">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="tax" type="tns:Tax" nillable="1"/>
+                    <xsd:element name="unit" type="tns:Unit" nillable="1"/>
+                    <xsd:element name="producer" type="tns:Producer" nillable="1"/>
+                    <xsd:element name="pkwiu" type="xsd:string" nillable="1"/>
+                    <xsd:element name="weight" type="xsd:string" nillable="1"/>
+                    <xsd:element name="url" type="xsd:string" nillable="1"/>
+                    <xsd:element name="active" type="xsd:string" nillable="1"/>
+                    <xsd:element name="code" type="xsd:string" nillable="1"/>
+                    <xsd:element name="translations" type="tns:ArrayOfTranslations" nillable="1"/>
+                    <xsd:element name="variants" type="tns:ArrayOfVariants" nillable="1"/>
+                    <xsd:element name="categories" type="tns:ArrayOfCategories" nillable="1"/>
+                    <xsd:element name="photos" type="tns:ArrayOfProductPhotos" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="ProductPhoto">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="product" type="tns:Product" nillable="1"/>
+                    <xsd:element name="resource" type="tns:Resource" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="VariantAvailable">
+                <xsd:all>
+                    <xsd:element name="stock" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="price" type="xsd:decimal" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Photo">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="url" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Payment">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="name" type="xsd:string" nillable="1"/>
+                    <xsd:element name="groups" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Delivery">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <description>Delivery service</description>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="name" type="xsd:string" nillable="1"/>
+                    <xsd:element name="cost" type="xsd:decimal" nillable="1"/>
+                    <xsd:element name="default" type="xsd:decimal" nillable="1"/>
+                    <xsd:element name="free" type="xsd:decimal" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="User">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <description>User in shop</description>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:all>
+                    <xsd:element name="email" type="xsd:string" nillable="0"/>
+                    <xsd:element name="password" type="xsd:string" nillable="0"/>
+                    <xsd:element name="regulation" type="xsd:string" nillable="1"/>
+                    <xsd:element name="newsletter" type="xsd:string" nillable="1"/>
+                    <xsd:element name="forname" type="xsd:string" nillable="0"/>
+                    <xsd:element name="surname" type="xsd:string" nillable="0"/>
+                    <xsd:element name="street" type="xsd:string" nillable="0"/>
+                    <xsd:element name="flat" type="xsd:string" nillable="1"/>
+                    <xsd:element name="city" type="xsd:string" nillable="0"/>
+                    <xsd:element name="postcode" type="xsd:string" nillable="0"/>
+                    <xsd:element name="country" type="xsd:string" nillable="1"/>
+                    <xsd:element name="phone" type="xsd:string" nillable="1"/>
+                    <xsd:element name="birthday" type="xsd:string" nillable="1"/>
+                    <xsd:element name="company" type="tns:Company" nillable="0"/>
+                    <xsd:element name="promotion" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="zeuscode" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Address">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <description>Address in shop</description>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:all>
+                    <xsd:element name="email" type="xsd:string" nillable="0"/>
+                    <xsd:element name="regulation" type="xsd:string" nillable="1"/>
+                    <xsd:element name="newsletter" type="xsd:string" nillable="1"/>
+                    <xsd:element name="forname" type="xsd:string" nillable="0"/>
+                    <xsd:element name="surname" type="xsd:string" nillable="0"/>
+                    <xsd:element name="street" type="xsd:string" nillable="0"/>
+                    <xsd:element name="flat" type="xsd:string" nillable="1"/>
+                    <xsd:element name="city" type="xsd:string" nillable="0"/>
+                    <xsd:element name="postcode" type="xsd:string" nillable="0"/>
+                    <xsd:element name="countryId" type="xsd:integer" nillable="0"/>
+                    <xsd:element name="countryIso" type="xsd:string" nillable="0"/>
+                    <xsd:element name="countryName" type="xsd:string" nillable="0"/>
+                    <xsd:element name="phone" type="xsd:string" nillable="0"/>
+                    <xsd:element name="birthday" type="xsd:string" nillable="1"/>
+                    <xsd:element name="company" type="tns:Company" nillable="1"/>
+                    <xsd:element name="zeuscode" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Company">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <description>Company data</description>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:all>
+                    <xsd:element name="nip" type="xsd:string" nillable="0"/>
+                    <xsd:element name="fullname" type="xsd:string" nillable="0"/>
+                    <xsd:element name="shortname" type="xsd:string" nillable="0"/>
+                    <xsd:element name="regon" type="xsd:string" nillable="1"/>
+                    <xsd:element name="krs" type="xsd:string" nillable="1"/>
+                    <xsd:element name="street" type="xsd:string" nillable="0"/>
+                    <xsd:element name="flat" type="xsd:string" nillable="0"/>
+                    <xsd:element name="postcode" type="xsd:string" nillable="0"/>
+                    <xsd:element name="city" type="xsd:string" nillable="0"/>
+                    <xsd:element name="account" type="xsd:string" nillable="1"/>
+                    <xsd:element name="bank" type="xsd:string" nillable="1"/>
+                    <xsd:element name="phone" type="xsd:string" nillable="1"/>
+                    <xsd:element name="fax" type="xsd:string" nillable="1"/>
+                    <xsd:element name="email" type="xsd:string" nillable="1"/>
+                    <xsd:element name="www" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Exchange">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <description>Exchange rate</description>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:all>
+                    <xsd:element name="currency" type="tns:Currency" nillable="1"/>
+                    <xsd:element name="value" type="xsd:decimal" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Position">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <description>Order position</description>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="variant" type="xsd:string" nillable="1"/>
+                    <xsd:element name="code" type="xsd:string" nillable="1"/>
+                    <xsd:element name="ean" type="xsd:string" nillable="1"/>
+                    <xsd:element name="stock" type="tns:Stock" nillable="1"/>
+                    <xsd:element name="quantity" type="xsd:decimal" nillable="1"/>
+                    <xsd:element name="tax" type="tns:Tax" nillable="1"/>
+                    <xsd:element name="price" type="xsd:decimal" nillable="1"/>
+                    <xsd:element name="finalprice" type="xsd:decimal" nillable="1"/>
+                    <xsd:element name="name" type="xsd:string" nillable="1"/>
+                    <xsd:element name="promotion" type="xsd:decimal" nillable="1"/>
+                    <xsd:element name="comment" type="xsd:string" nillable="1"/>
+                    <xsd:element name="zeusId" type="xsd:string" nillable="1"/>
+                    <xsd:element name="source" type="xsd:string" nillable="1"/>
+                    <xsd:element name="sourceid" type="xsd:string" nillable="1"/>
+                    <xsd:element name="settings" type="tns:ArrayOfPositionSettings" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Order">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <description>Order data</description>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="status" type="xsd:string" nillable="1"/>
+                    <xsd:element name="payment" type="tns:Payment" nillable="1"/>
+                    <xsd:element name="delivery" type="tns:Delivery" nillable="1"/>
+                    <xsd:element name="contact" type="tns:Address" nillable="1"/>
+                    <xsd:element name="receiver" type="tns:Address" nillable="1"/>
+                    <xsd:element name="invoice" type="tns:Address" nillable="1"/>
+                    <xsd:element name="exchange" type="tns:Exchange" nillable="1"/>
+                    <xsd:element name="language" type="tns:Language" nillable="1"/>
+                    <xsd:element name="ip" type="xsd:string" nillable="1"/>
+                    <xsd:element name="promotion" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="description" type="xsd:string" nillable="1"/>
+                    <xsd:element name="positions" type="tns:ArrayOfPositions" nillable="1"/>
+                    <xsd:element name="history" type="tns:ArrayOfOrderHistory" nillable="1"/>
+                    <xsd:element name="properties" type="tns:ArrayOfOrderProperties" nillable="1"/>
+                    <xsd:element name="currency" type="xsd:string" nillable="1"/>
+                    <xsd:element name="added" type="xsd:string" nillable="1"/>
+                    <xsd:element name="source" type="xsd:string" nillable="1"/>
+                    <xsd:element name="sourceid" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="ZeusOrder">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <description>Zeus order data</description>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="status" type="xsd:string" nillable="1"/>
+                    <xsd:element name="payment" type="tns:Payment" nillable="1"/>
+                    <xsd:element name="delivery" type="tns:Delivery" nillable="1"/>
+                    <xsd:element name="contact" type="tns:Address" nillable="1"/>
+                    <xsd:element name="receiver" type="tns:Address" nillable="1"/>
+                    <xsd:element name="netto" type="xsd:decimal" nillable="1"/>
+                    <xsd:element name="invoice" type="tns:Address" nillable="1"/>
+                    <xsd:element name="exchange" type="tns:Exchange" nillable="1"/>
+                    <xsd:element name="language" type="tns:Language" nillable="1"/>
+                    <xsd:element name="ip" type="xsd:string" nillable="1"/>
+                    <xsd:element name="promotion" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="description" type="xsd:string" nillable="1"/>
+                    <xsd:element name="positions" type="tns:ArrayOfPositions" nillable="1"/>
+                    <xsd:element name="currency" type="xsd:string" nillable="1"/>
+                    <xsd:element name="source" type="xsd:string" nillable="1"/>
+                    <xsd:element name="sourceid" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+      
+            <xsd:complexType name="CheckPhotoResponse">
+                <xsd:all>
+                    <xsd:element name="productid" type="xsd:string" nillable="1"/>
+                    <xsd:element name="photoscount" type="xsd:int" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="ProductCode">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:string" nillable="1"/>
+                    <xsd:element name="code" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>            
+            <xsd:complexType name="SimpleProduct">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <description>Simple view of product. View except relations objects</description>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:string" nillable="1"/>
+                    <!-- Product code must be unique, otherwise the product may result in overwriting. -->
+                    <xsd:element name="tax" type="xsd:string" nillable="1"/>
+                    <xsd:element name="code" type="xsd:string" nillable="1"/>
+                    <xsd:element name="name" type="xsd:string" nillable="1"/>
+                    <xsd:element name="producer" type="xsd:string" nillable="1"/>
+                    <xsd:element name="description" type="xsd:string" nillable="1"/>
+                    <xsd:element name="netto" type="xsd:decimal" nillable="1"/>
+                    <xsd:element name="brutto" type="xsd:decimal" nillable="1"/>
+                    <xsd:element name="promotion" type="xsd:decimal" nillable="1"/>
+                    <xsd:element name="weight" type="xsd:decimal" nillable="1"/>
+                    <xsd:element name="ean" type="xsd:string" nillable="1"/>
+                    <xsd:element name="categories" type="tns:ArrayOfCats" nillable="1"/>
+                    <xsd:element name="photos" type="tns:ArrayOfStrings" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Producer">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <description>Product producer</description>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="name" type="xsd:string" nillable="1"/>
+                    <xsd:element name="active" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Variant">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:integer" nillable="1"/>
+                    <!-- Option code must be unique within the product. -->
+                    <xsd:element name="product" type="tns:Product" nillable="1"/>
+                    <xsd:element name="code" type="xsd:string" nillable="1"/>
+                    <xsd:element name="ean1" type="xsd:string" nillable="1"/>
+                    <xsd:element name="ean2" type="xsd:string" nillable="1"/>
+                    <xsd:element name="ean3" type="xsd:string" nillable="1"/>
+                    <xsd:element name="weight" type="xsd:decimal" nillable="1"/>
+                    <xsd:element name="attributes" type="tns:ArrayOfAttributes" nillable="1"/>
+                    <xsd:element name="photos" type="tns:ArrayOfVariantPhotos" nillable="1"/>
+                    <xsd:element name="stocks" type="tns:ArrayOfStocks" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Property">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <description>Property of variant</description>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="name" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Shop">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <description>Shop data</description>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="name" type="xsd:string" nillable="1"/>
+                    <xsd:element name="ticket" type="tns:Ticket" nillable="1"/>
+                    <xsd:element name="company" type="tns:Company" nillable="1"/>
+                    <xsd:element name="settings" type="tns:ArrayOfSettings" nillable="1"/>
+                    <xsd:element name="logo" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Tax">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="name" type="xsd:string" nillable="1"/>
+                    <xsd:element name="percent" type="xsd:integer" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Unit">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <description>Unit data</description>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="name" type="xsd:string" nillable="1"/>
+                    <xsd:element name="short" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Translation">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <description>Name or description of product in selected language</description>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:all>
+                    <xsd:element name="language" type="tns:Language" nillable="1"/>
+                    <xsd:element name="type" type="xsd:string" nillable="1"/>
+                    <xsd:element name="value" type="xsd:string" nillable="1" />
+                    <xsd:element name="product" type="tns:Product" nillable="1" />
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Warehouse">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <description>Warehosue data</description>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="name" type="xsd:string" nillable="1"/>
+                    <xsd:element name="address" type="xsd:string" nillable="1"/>
+                    <xsd:element name="postcode" type="xsd:string" nillable="1"/>
+                    <xsd:element name="city" type="xsd:string" nillable="1"/>
+                    <xsd:element name="phone" type="xsd:string" nillable="1"/>
+                    <xsd:element name="fax" type="xsd:string" nillable="1"/>
+                    <xsd:element name="email" type="xsd:string" nillable="1"/>
+                    <xsd:element name="www" type="xsd:string" nillable="1"/>
+                    <!-- Availablity product for sale in days -->
+                    <xsd:element name="availability" type="xsd:integer" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Stock">
+                <xsd:all>
+                    <xsd:element name="variant" type="tns:Variant" nillable="1"/>
+                    <xsd:element name="warehouse" type="tns:Warehouse" nillable="1"/>
+                    <xsd:element name="quantity" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="active" type="xsd:string" nillable="1"/>
+                    <xsd:element name="price" type="xsd:decimal" nillable="1"/>
+                    <xsd:element name="discount" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="discountsum" type="xsd:decimal" nillable="1"/>
+                    <xsd:element name="profit" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="profitsum" type="xsd:decimal" nillable="1"/>
+                    <xsd:element name="promotion" type="xsd:decimal" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Page">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <description>Page HTML in shop</description>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:all>
+                    <xsd:element name="type" type="xsd:string" nillable="1"/>
+                    <xsd:element name="title" type="xsd:string" nillable="1"/>
+                    <xsd:element name="body" type="xsd:string" nillable="1"/>
+                    <xsd:element name="photos" type="tns:ArrayOfStrings" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Information">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <description>Information from shop</description>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="language" type="tns:Language" nillable="1"/>
+                    <xsd:element name="title" type="xsd:string" nillable="1"/>
+                    <xsd:element name="body" type="xsd:string" nillable="1"/>
+                    <xsd:element name="priority" type="xsd:string" nillable="1"/>
+                    <xsd:element name="added" type="xsd:string" nillable="1"/>
+                    <!-- Active information values: Y/N -->
+                    <xsd:element name="active" type="xsd:string" nillable="1"/>
+                    <xsd:element name="photos" type="tns:ArrayOfStrings" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Error">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <description>Information from shop</description>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:all>
+                    <xsd:element name="code" type="xsd:string" nillable="1"/>
+                    <xsd:element name="message" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+
+      
+            <!-- Conditions types -->
+            <xsd:complexType name="ProductConditions">
+                <xsd:all>
+                    <xsd:element name="search" type="xsd:string" nillable="1"/>
+                    <xsd:element name="order" type="xsd:string" nillable="1"/>
+                    <xsd:element name="sort" type="xsd:string" nillable="1"/>
+                    <xsd:element name="offset" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="active" type="tns:ArrayOfStrings" nillable="1"/>
+                    <xsd:element name="limit" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="producer" type="xsd:string" nillable="1"/>
+                    <xsd:element name="language" type="tns:Language" nillable="1"/>
+                    <xsd:element name="properties" type="tns:ArrayOfPropertyConditions" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="TaxConditions">
+                <xsd:all>
+                    <xsd:element name="search" type="xsd:string" nillable="1"/>
+                    <xsd:element name="order" type="xsd:string" nillable="1"/>
+                    <xsd:element name="sort" type="xsd:string" nillable="1"/>
+                    <xsd:element name="offset" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="limit" type="xsd:integer" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="UnitConditions">
+                <xsd:all>
+                    <xsd:element name="search" type="xsd:string" nillable="1"/>
+                    <xsd:element name="order" type="xsd:string" nillable="1"/>
+                    <xsd:element name="sort" type="xsd:string" nillable="1"/>
+                    <xsd:element name="offset" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="limit" type="xsd:integer" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="SettingConditions">
+                <xsd:all>
+                    <xsd:element name="search" type="xsd:string" nillable="1"/>
+                    <xsd:element name="order" type="xsd:string" nillable="1"/>
+                    <xsd:element name="sort" type="xsd:string" nillable="1"/>
+                    <xsd:element name="offset" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="limit" type="xsd:integer" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="PropertyConditions">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <description>Conditions for search properties</description>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:all>
+                    <xsd:element name="property" type="tns:Property" nillable="1"/>
+                    <xsd:element name="value" type="xsd:string" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="PagesConditions">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <description>Conditions for search static pages</description>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:all>
+                    <xsd:element name="pagetype" type="xsd:string" nillable="1"/>
+                    <xsd:element name="search" type="xsd:string" nillable="1"/>
+                    <xsd:element name="active" type="tns:ArrayOfStrings" nillable="1"/>
+                    <xsd:element name="language" type="tns:Language" nillable="1"/>
+                    <xsd:element name="order" type="xsd:string" nillable="1"/>
+                    <xsd:element name="sort" type="xsd:string" nillable="1"/>
+                    <xsd:element name="offset" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="limit" type="xsd:integer" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="InformationConditions">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <description>Conditions for search informations</description>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:all>
+                    <xsd:element name="search" type="xsd:string" nillable="1"/>
+                    <xsd:element name="language" type="tns:Language" nillable="1"/>
+                    <xsd:element name="order" type="xsd:string" nillable="1"/>
+                    <xsd:element name="active" type="tns:ArrayOfStrings" nillable="1"/>
+                    <xsd:element name="sort" type="xsd:string" nillable="1"/>
+                    <xsd:element name="offset" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="limit" type="xsd:integer" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="BannerConditions">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <description>Conditions for search banners</description>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:all>
+                    <xsd:element name="search" type="xsd:string" nillable="1"/>
+                    <xsd:element name="language" type="tns:Language" nillable="1"/>
+                    <xsd:element name="order" type="xsd:string" nillable="1"/>
+                    <xsd:element name="active" type="tns:ArrayOfStrings" nillable="1"/>
+                    <xsd:element name="sort" type="xsd:string" nillable="1"/>
+                    <xsd:element name="offset" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="limit" type="xsd:integer" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="ProducerConditions">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <description>Conditions for search producer</description>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:all>
+                    <xsd:element name="ids" type="tns:ArrayOfIntegers" nillable="1"/>
+                    <xsd:element name="search" type="xsd:string" nillable="1"/>
+                    <xsd:element name="order" type="xsd:string" nillable="1"/>
+                    <xsd:element name="sort" type="xsd:string" nillable="1"/>
+                    <xsd:element name="limit" type="xsd:integer" nillable="1"/>
+                    <xsd:element name="offset" type="xsd:integer" nillable="1"/>
+                </xsd:all>
+            </xsd:complexType>
+        </xsd:schema>
+    </types>
+
+
+
+
+
+  
+    <!-- Messages -->
+    <message name="createTicketRequest">
+        <part name="serviceKey" type="xsd:string"/>
+        <part name="identifier" type="xsd:integer"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+    <message name="createTicketResponse">
+        <part name="ticket" type="tns:Ticket"/>
+    </message>
+    <message name="importCustomerDataRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="type" type="xsd:string"/>
+        <part name="address" type="xsd:string"/>
+    </message>
+    <message name="updateCustomerDataResponse">
+        <part name="status" type="xsd:string"/>
+    </message>
+    <message name="removeCustomerDataRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="address" type="xsd:string"/>
+    </message>
+    <message name="removeCustomerDataResponse">
+        <part name="status" type="xsd:boolean"/>
+    </message>
+    <message name="updateCustomerDataRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="type" type="xsd:string"/>
+        <part name="addresses" type="tns:ArrayOfStrings"/>
+    </message>
+    <message name="importCustomerDataResponse">
+        <part name="id" type="xsd:string"/>
+        <part name="authorization" type="tns:Authorization"/>
+    </message>
+    <message name="importStatusesRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="url" type="xsd:string"/>
+    </message>
+    <message name="importStatusesResponse">
+        <part name="status" type="xsd:string"/>
+        <part name="modified" type="xsd:dateTime"/>
+    </message>
+    <message name="loginRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="email" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+    <message name="loginResponse">
+        <part name="result" type="tns:User"/>
+    </message>
+    <message name="sendImportXMLRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="file" type="xsd:base64Binary"/>
+    </message>
+    <message name="sendImportXMLResponse">
+        <part name="result" type="xsd:integer"/>
+    </message>
+    <message name="getJournalRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="fromdate" type="xsd:dateTime"/>
+    </message>
+    <message name="getJournalResponse">
+        <part name="result" type="tns:ArrayOfJournals"/>
+    </message>
+    <message name="checkProductPhotoRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="code" type="xsd:string"/>
+    </message>
+    <message name="checkProductPhotoResponse">
+        <part name="result" type="tns:CheckPhotoResponse"/>
+    </message>
+    <message name="getProductCodeListRequest">
+        <part name="ticket" type="tns:Ticket"/>
+    </message>
+    <message name="getProductCodeListResponse">
+        <part name="result" type="tns:ProductCodeCollection"/>
+    </message>
+    <message name="getReportRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="type" type="xsd:string"/>
+    </message>
+    <message name="getReportResponse">
+        <part name="result" type="tns:ArrayOfStrings"/>
+    </message>
+  
+    <message name="confirmJournalRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="lastid" type="xsd:integer"/>
+    </message>
+    <message name="confirmJournalResponse">
+        <part name="result" type="xsd:boolean"/>
+    </message>
+  
+    <message name="getWebsiteConfigurationRequest">
+        <part name="ticket" type="tns:Ticket"/>
+    </message>
+    <message name="getWebsiteConfigurationResponse">
+        <part name="result" type="tns:ArrayOfProps"/>
+    </message>
+  
+    <message name="changeOfferPriceRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="offerid" type="xsd:string"/>
+        <part name="login" type="xsd:string"/>
+        <part name="price" type="xsd:decimal"/>
+    </message>
+    <message name="changeOfferPriceResponse">
+        <part name="result" type="xsd:boolean"/>
+    </message>
+  
+    <message name="changeAllegroFIDRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="offerid" type="xsd:string"/>
+        <part name="fid" type="xsd:integer"/>
+        <part name="value" type="xsd:string"/>
+    </message>
+    <message name="changeAllegroFIDResponse">
+        <part name="result" type="xsd:boolean"/>
+    </message>
+  
+    <message name="getPricesByOfferRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="offerid" type="xsd:string"/>
+        <part name="login" type="xsd:string"/>
+    </message>
+    <message name="getPricesByOfferResponse">
+        <part name="result" type="tns:ArrayOfProps"/>
+    </message>
+  
+    <message name="getClassifiedsPriceStatsRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="brand" type="xsd:string"/>
+        <part name="model" type="xsd:string"/>
+        <part name="build" type="xsd:string"/>
+    </message>
+    <message name="getClassifiedsPriceStatsResponse">
+        <part name="result" type="tns:ArrayOfClassifiedStats"/>
+    </message>
+  
+    <message name="saveProductCategoryDisposeRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="pid" type="xsd:integer"/>
+        <part name="cid" type="xsd:integer"/>
+    </message>
+    <message name="saveProductCategoryDisposeResponse">
+        <part name="result" type="xsd:boolean"/>
+    </message>
+    <message name="saveProductTranslationRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="translation" type="tns:Translation"/>
+    </message>
+    <message name="saveProductTranslationResponse">
+        <part name="result" type="xsd:boolean"/>
+    </message>
+    <message name="takeProductVariantsRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="pid" type="xsd:integer"/>
+    </message>
+    <message name="takeProductVariantsResponse">
+        <part name="result" type="tns:ArrayOfSimpleVariants"/>
+    </message>
+    <message name="getShopByDomainRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="name" type="xsd:string"/>
+    </message>
+    <message name="getShopByDomainResponse">
+        <part name="shop" type="tns:Shop"/>
+    </message>
+    <message name="createUserRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="user" type="tns:User"/>
+    </message>
+    <message name="createUserResponse">
+        <part name="result" type="xsd:boolean"/>
+    </message>
+    <message name="getImageByVariantIdRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="vid" type="xsd:integer"/>
+    </message>
+    <message name="getImageByVariantIdResponse">
+        <part name="result" type="xsd:base64Binary"/>
+    </message>
+    <message name="createOrderRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="order" type="tns:Order"/>
+    </message>
+    <message name="createOrderResponse">
+        <part name="result" type="xsd:integer"/>
+    </message>
+    <message name="createZeusOrderRequest">
+        <part name="zeusUserId" type="xsd:string"/>
+        <part name="zeusUserCode" type="xsd:string"/>
+        <part name="order" type="tns:ZeusOrder"/>
+    </message>
+    <message name="createZeusOrderResponse">
+        <part name="result" type="xsd:integer"/>
+    </message>
+    <message name="getOrderRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="orderid" type="xsd:integer"/>
+    </message>
+    <message name="getOrderResponse">
+        <part name="result" type="tns:Order"/>
+    </message>
+    <message name="getOrderXMLRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="orderid" type="xsd:integer"/>
+    </message>
+    <message name="getOrderXMLResponse">
+        <part name="result" type="xsd:string"/>
+    </message>
+    <message name="changeOrderStatusRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="orderid" type="xsd:integer"/>
+        <part name="statusname" type="xsd:string"/>
+        <part name="ttnumber" type="xsd:string"/>
+        <part name="comment" type="xsd:string"/>
+        <part name="properties" type="tns:ArrayOfOrderProperties"/>
+    </message>
+    <message name="changeOrderStatusResponse">
+        <part name="result" type="xsd:boolean"/>
+    </message>
+    <message name="getPromotionPriceRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="orderid" type="xsd:integer"/>
+    </message>
+    <message name="getPromotionPriceResponse">
+        <part name="result" type="xsd:decimal"/>
+    </message>
+    <message name="getPromotionPriceForPositionRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="orderid" type="xsd:integer"/>
+        <part name="code" type="xsd:string"/>
+    </message>
+    <message name="getPromotionPriceForPositionResponse">
+        <part name="result" type="xsd:decimal"/>
+    </message>
+    <message name="getPromotionPriceByCodeIfDiscountCodeRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="orderid" type="xsd:integer"/>
+        <part name="code" type="xsd:string"/>
+    </message>
+    <message name="getPromotionPriceByCodeIfDiscountCodeResponse">
+        <part name="result" type="xsd:decimal"/>
+    </message>
+    <message name="takeCurrencyRateRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="currency" type="xsd:string"/>
+    </message>
+    <message name="takeCurrencyRateResponse">
+        <part name="rate" type="xsd:decimal"/>
+    </message>
+    <message name="takeNewsRequest">
+        <part name="ticket" type="tns:Ticket"/>
+    </message>
+    <message name="takeNewsResponse">
+        <part name="news" type="tns:ArrayOfNews"/>
+    </message>
+    <message name="takeBannersRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="conditions" type="tns:BannerConditions"/>
+    </message>
+    <message name="takeBannersResponse">
+        <part name="banners" type="tns:ArrayOfBanners"/>
+    </message>
+    <message name="takeProductPhotosRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="pid" type="xsd:integer"/>
+        <part name="width" type="xsd:integer"/>
+        <part name="height" type="xsd:integer"/>
+    </message>
+    <message name="takeProductPhotosResponse">
+        <part name="photos" type="tns:ArrayOfPhotos"/>
+    </message>
+    <message name="takeVariantAvailableRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="vid" type="xsd:integer"/>
+        <part name="currency" type="xsd:string"/>
+    </message>
+    <message name="takeVariantAvailableResponse">
+        <part name="info" type="tns:VariantAvailable"/>
+    </message>
+    <message name="takeVariantsStocksRequest">
+        <part name="ticket" type="tns:Ticket"/>
+    </message>
+    <message name="takeVariantsStocksResponse">
+        <part name="stocks" type="tns:ArrayOfVariantStocks"/>
+    </message>
+    <message name="takeTaxesRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="conditions" type="tns:TaxConditions"/>
+    </message>
+    <message name="takeTaxesResponse">
+        <part name="result" type="tns:TaxesCollection"/>
+    </message>
+    <message name="getProductsForIntegrationsRequest">
+        <part name="ticket" type="tns:Ticket"/>
+    </message>
+    <message name="getProductsForIntegrationsResponse">
+        <part name="products" type="tns:ArrayOfIntegrationProducts"/>
+    </message>
+    <message name="takeUnitsRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="conditions" type="tns:UnitConditions"/>
+    </message>
+    <message name="takeUnitsResponse">
+        <part name="result" type="tns:UnitsCollection"/>
+    </message>
+    <message name="takeSettingsRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="conditions" type="tns:SettingConditions"/>
+    </message>
+    <message name="takeSettingsResponse">
+        <part name="result" type="tns:SettingsCollection"/>
+    </message>
+    <message name="updateProductRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="product" type="tns:Product"/>
+    </message>
+    <message name="updateProductResponse">
+        <part name="result" type="xsd:integer"/>
+    </message>
+    <message name="saveProductPhotoRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="product" type="tns:Resource"/>
+        <part name="pid" type="xsd:integer"/>
+    </message>
+    <message name="saveProductPhotoResponse">
+        <part name="result" type="xsd:integer"/>
+    </message>
+    <message name="removeOldStocksByWarehouseRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="wid" type="xsd:integer"/>
+        <part name="date" type="xsd:dateTime"/>
+    </message>
+    <message name="removeOldStocksByWarehouseResponse">
+        <part name="result" type="xsd:boolean"/>
+    </message>
+    <message name="updateStocksByVariantCodeRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="code" type="xsd:string"/>
+        <part name="wid" type="xsd:integer"/>
+        <part name="price" type="xsd:decimal"/>
+        <part name="quantity" type="xsd:decimal"/>
+        <part name="comment" type="xsd:string"/>
+        <part name="info" type="xsd:string"/>
+    </message>
+    <message name="updateStocksByVariantCodeResponse">
+        <part name="result" type="xsd:boolean"/>
+    </message>
+    <message name="updateStocksByCodeOrEanRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="code" type="xsd:string"/>
+        <part name="ean" type="xsd:string"/>
+        <part name="wid" type="xsd:integer"/>
+        <part name="price" type="xsd:decimal"/>
+        <part name="quantity" type="xsd:decimal"/>
+        <part name="comment" type="xsd:string"/>
+        <part name="info" type="xsd:string"/>
+    </message>
+    <message name="updateStocksByCodeOrEanResponse">
+        <part name="result" type="xsd:boolean"/>
+    </message>
+    <message name="takeProductRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="id" type="xsd:integer"/>
+        <part name="code" type="xsd:string"/>
+    </message>
+    <message name="takeProductResponse">
+        <part name="result" type="tns:Product"/>
+    </message>
+    <message name="searchProductsRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="conditions" type="tns:ProductConditions"/>
+        <part name="language" type="tns:Language"/>
+        <part name="currency" type="tns:Currency"/>
+    </message>
+    <message name="searchProductsResponse">
+        <part name="result" type="tns:ArrayOfProducts"/>
+    </message>
+    <message name="getProductsChangesRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="modified" type="xsd:dateTime"/>
+    </message>
+    <message name="getProductsChangesResponse">
+        <part name="result" type="tns:ArrayOfChanges"/>
+    </message>
+    <message name="takeProductsByConditionsRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="conditions" type="tns:ProductConditions"/>
+        <part name="language" type="tns:Language"/>
+        <part name="currency" type="tns:Currency"/>
+    </message>
+    <message name="takeProductsByConditionsResponse">
+        <part name="result" type="tns:ArrayOfProducts"/>
+    </message>
+    <message name="searchProductsSimpleRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="conditions" type="tns:ProductConditions"/>
+        <part name="language" type="tns:Language"/>
+        <part name="currency" type="tns:Currency"/>
+    </message>
+    <message name="searchProductsSimpleResponse">
+        <part name="result" type="tns:ArrayOfSimpleProducts"/>
+    </message>
+    <message name="searchProductsSimpleCountRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="conditions" type="tns:ProductConditions"/>
+        <part name="language" type="tns:Language"/>
+        <part name="currency" type="tns:Currency"/>
+    </message>
+    <message name="searchProductsSimpleCountResponse">
+        <part name="count" type="xsd:integer"/>
+    </message>
+    <message name="searchProductsByQueryRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="query" type="xsd:string"/>
+        <part name="offset" type="xsd:integer"/>
+        <part name="limit" type="xsd:integer"/>
+    </message>
+    <message name="searchProductsByQueryResponse">
+        <part name="result" type="tns:ArrayOfObjects"/>
+    </message>
+    <message name="takeStaticPageRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="type" type="xsd:string"/>
+    </message>
+    <message name="takeStaticPageResponse">
+        <part name="page" type="tns:Page"/>
+    </message>
+    <message name="takePageRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="pid" type="xsd:integer"/>
+    </message>
+    <message name="takePageResponse">
+        <part name="page" type="tns:Page"/>
+    </message>
+    <message name="updateProductSettingsRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="settings" type="tns:ArrayOfSettings"/>
+    </message>
+    <message name="updateProductSettingsResponse">
+        <part name="result" type="xsd:integer"/>
+    </message>
+    <message name="takeProductSettingsRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="pid" type="xsd:integer"/>
+    </message>
+    <message name="takeProductSettingsResponse">
+        <part name="settings" type="tns:ArrayOfSettings"/>
+    </message>
+    <message name="takePagesRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="conditions" type="tns:PagesConditions"/>
+    </message>
+    <message name="takePagesResponse">
+        <part name="pages" type="tns:ArrayOfPages"/>
+    </message>
+    <message name="takeInformationsRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="conditions" type="tns:InformationConditions"/>
+    </message>
+    <message name="takeInformationsResponse">
+        <part name="informations" type="tns:ArrayOfInformations"/>
+    </message>
+    <message name="updateInformationRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="information" type="tns:Information"/>
+    </message>
+    <message name="updateInformationResponse">
+        <part name="result" type="xsd:integer"/>
+    </message>
+    <message name="takeInformationRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="identifier" type="xsd:integer"/>
+    </message>
+    <message name="takeInformationResponse">
+        <part name="information" type="tns:Information"/>
+    </message>
+    <message name="updateOrderRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="order" type="tns:Order"/>
+    </message>
+    <message name="updateOrderResponse">
+        <part name="result" type="xsd:integer"/>
+    </message>
+    <message name="takeProducersRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="conditions" type="tns:ProducerConditions"/>
+    </message>
+    <message name="takeProducersResponse">
+        <part name="producers" type="tns:ArrayOfProducers"/>
+    </message>
+    <message name="takeCategoriesTreeRequest">
+        <part name="ticket" type="tns:Ticket"/>
+    </message>
+    <message name="takeCategoriesTreeResponse">
+        <part name="producers" type="tns:ArrayOfCategories"/>
+    </message>
+    <message name="takeProducerRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="pid" type="xsd:integer"/>
+    </message>
+    <message name="takeProducerResponse">
+        <part name="producer" type="tns:Producer"/>
+    </message>
+    <message name="updateProducerRequest">
+        <part name="ticket" type="tns:Ticket"/>
+        <part name="producer" type="tns:Producer"/>
+    </message>
+    <message name="updateProducerResponse">
+        <part name="result" type="xsd:boolean"/>
+    </message>
+  
+  
+    <portType name="GizaAPIPortType">
+        <!-- Method takes a ticket including the session id is awarded on the basis of previously transmitted data access. -->
+        <operation name="createTicket">
+            <input message="tns:createTicketRequest"/>
+            <output message="tns:createTicketResponse"/>
+        </operation>
+        <operation name="importCustomerData">
+            <input message="tns:importCustomerDataRequest"/>
+            <output message="tns:importCustomerDataResponse"/>
+        </operation>
+        <operation name="removeCustomerData">
+            <input message="tns:removeCustomerDataRequest"/>
+            <output message="tns:removeCustomerDataResponse"/>
+        </operation>
+        <operation name="updateCustomerData">
+            <input message="tns:updateCustomerDataRequest"/>
+            <output message="tns:updateCustomerDataResponse"/>
+        </operation>
+        <operation name="importStatuses">
+            <input message="tns:importStatusesRequest"/>
+            <output message="tns:importStatusesResponse"/>
+        </operation>
+        <operation name="login">
+            <input message="tns:loginRequest"/>
+            <output message="tns:loginResponse"/>
+        </operation>
+        <operation name="sendImportXML">
+            <input message="tns:sendImportXMLRequest"/>
+            <output message="tns:sendImportXMLResponse"/>
+        </operation>
+        <operation name="getJournal">
+            <input message="tns:getJournalRequest"/>
+            <output message="tns:getJournalResponse"/>
+        </operation>
+        <operation name="checkProductPhoto">
+            <input message="tns:checkProductPhotoRequest"/>
+            <output message="tns:checkProductPhotoResponse"/>
+        </operation>
+        <operation name="getProductCodeList">
+            <input message="tns:getProductCodeListRequest"/>
+            <output message="tns:getProductCodeListResponse"/>
+        </operation>
+        <operation name="getReport">
+            <input message="tns:getReportRequest"/>
+            <output message="tns:getReportResponse"/>
+        </operation>
+        <operation name="confirmJournal">
+            <input message="tns:confirmJournalRequest"/>
+            <output message="tns:confirmJournalResponse"/>
+        </operation>
+        <operation name="getWebsiteConfiguration">
+            <input message="tns:getWebsiteConfigurationRequest"/>
+            <output message="tns:getWebsiteConfigurationResponse"/>
+        </operation>
+        <operation name="saveProductTranslation">
+            <input message="tns:saveProductTranslationRequest"/>
+            <output message="tns:saveProductTranslationResponse"/>
+        </operation>
+        <operation name="changeOfferPrice">
+            <input message="tns:changeOfferPriceRequest"/>
+            <output message="tns:changeOfferPriceResponse"/>
+        </operation>
+        <operation name="changeAllegroFID">
+            <input message="tns:changeAllegroFIDRequest"/>
+            <output message="tns:changeAllegroFIDResponse"/>
+        </operation>
+        <operation name="getPricesByOffer">
+            <input message="tns:getPricesByOfferRequest"/>
+            <output message="tns:getPricesByOfferResponse"/>
+        </operation>
+        <operation name="getClassifiedsPriceStats">
+            <input message="tns:getClassifiedsPriceStatsRequest"/>
+            <output message="tns:getClassifiedsPriceStatsResponse"/>
+        </operation>
+        <operation name="saveProductCategoryDispose">
+            <input message="tns:saveProductCategoryDisposeRequest"/>
+            <output message="tns:saveProductCategoryDisposeResponse"/>
+        </operation>
+        <operation name="takeProductVariants">
+            <input message="tns:takeProductVariantsRequest"/>
+            <output message="tns:takeProductVariantsResponse"/>
+        </operation>
+        <!-- Method returns shop object by domain -->
+        <operation name="getShopByDomain">
+            <input message="tns:getShopByDomainRequest"/>
+            <output message="tns:getShopByDomainResponse"/>
+        </operation>
+        <!-- Get currency rate in redbay shop -->
+        <operation name="takeCurrencyRate">
+            <input message="tns:takeCurrencyRateRequest"/>
+            <output message="tns:takeCurrencyRateResponse"/>
+        </operation>
+        <!-- Take news for shop admin -->
+        <operation name="takeNews">
+            <input message="tns:takeNewsRequest"/>
+            <output message="tns:takeNewsResponse"/>
+        </operation>
+        <!-- Take banners for shop admin -->
+        <operation name="takeBanners">
+            <input message="tns:takeBannersRequest"/>
+            <output message="tns:takeBannersResponse"/>
+        </operation>
+        <!-- Get photos by product id -->
+        <operation name="takeProductPhotos">
+            <input message="tns:takeProductPhotosRequest"/>
+            <output message="tns:takeProductPhotosResponse"/>
+        </operation>
+        <!-- Get info about price, stock and available variant -->
+        <operation name="takeVariantAvailable">
+            <input message="tns:takeVariantAvailableRequest"/>
+            <output message="tns:takeVariantAvailableResponse"/>
+        </operation>
+        <!-- Get info about price, stock and available variant -->
+        <operation name="takeVariantsStocks">
+            <input message="tns:takeVariantsStocksRequest"/>
+            <output message="tns:takeVariantsStocksResponse"/>
+        </operation>
+        <!-- Create user in shop -->
+        <operation name="createUser">
+            <input message="tns:createUserRequest"/>
+            <output message="tns:createUserResponse"/>
+        </operation>
+        <!-- Get image from shop -->
+        <operation name="getImageByVariantId">
+            <input message="tns:getImageByVariantIdRequest"/>
+            <output message="tns:getImageByVariantIdResponse"/>
+        </operation>
+        <!-- Create order in shop -->
+        <operation name="createOrder">
+            <input message="tns:createOrderRequest"/>
+            <output message="tns:createOrderResponse"/>
+        </operation>
+        <!-- Create order in shop -->
+        <operation name="createZeusOrder">
+            <input message="tns:createZeusOrderRequest"/>
+            <output message="tns:createZeusOrderResponse"/>
+        </operation>
+        <!-- Get order from shop -->
+        <operation name="getOrder">
+            <input message="tns:getOrderRequest"/>
+            <output message="tns:getOrderResponse"/>
+        </operation>
+        <!-- Get order from shop -->
+        <operation name="getOrderXML">
+            <input message="tns:getOrderXMLRequest"/>
+            <output message="tns:getOrderXMLResponse"/>
+        </operation>
+        <operation name="changeOrderStatus">
+            <input message="tns:changeOrderStatusRequest"/>
+            <output message="tns:changeOrderStatusResponse"/>
+        </operation>
+        <operation name="getPromotionPriceForPosition">
+            <input message="tns:getPromotionPriceForPositionRequest"/>
+            <output message="tns:getPromotionPriceForPositionResponse"/>
+        </operation>
+        <operation name="getPromotionPriceByCodeIfDiscountCode">
+            <input message="tns:getPromotionPriceByCodeIfDiscountCodeRequest"/>
+            <output message="tns:getPromotionPriceByCodeIfDiscountCodeResponse"/>
+        </operation>
+        <operation name="getPromotionPrice">
+            <input message="tns:getPromotionPriceRequest"/>
+            <output message="tns:getPromotionPriceResponse"/>
+        </operation>
+        <!-- The method takes a list of permitted categories of product. -->
+        <operation name="takeCategoriesTree">
+            <input message="tns:takeCategoriesTreeRequest"/>
+            <output message="tns:takeCategoriesTreeResponse"/>
+        </operation>
+        <!-- This method allows you to create or update the product in the warehouse and its features. -->
+        <operation name="updateProduct">
+            <input message="tns:updateProductRequest"/>
+            <output message="tns:updateProductResponse"/>
+        </operation>
+        <!-- Save resource photo for product -->
+        <operation name="saveProductPhoto">
+            <input message="tns:saveProductPhotoRequest"/>
+            <output message="tns:saveProductPhotoResponse"/>
+        </operation>
+        <!-- Remove stocks before date -->
+        <operation name="removeOldStocksByWarehouse">
+            <input message="tns:removeOldStocksByWarehouseRequest"/>
+            <output message="tns:removeOldStocksByWarehouseResponse"/>
+        </operation>
+        <!-- Update stock warehouse by code -->
+        <operation name="updateStocksByVariantCode">
+            <input message="tns:updateStocksByVariantCodeRequest"/>
+            <output message="tns:updateStocksByVariantCodeResponse"/>
+        </operation>
+        <!-- Update stock warehouse by code or ean -->
+        <operation name="updateStocksByCodeOrEan">
+            <input message="tns:updateStocksByCodeOrEanRequest"/>
+            <output message="tns:updateStocksByCodeOrEanResponse"/>
+        </operation>
+        <!-- Take taxes from db. -->
+        <operation name="takeTaxes">
+            <input message="tns:takeTaxesRequest"/>
+            <output message="tns:takeTaxesResponse"/>
+        </operation>
+        <!-- Take products for integrations -->
+        <operation name="getProductsForIntegrations">
+            <input message="tns:getProductsForIntegrationsRequest"/>
+            <output message="tns:getProductsForIntegrationsResponse"/>
+        </operation>
+        <!-- Take units from db. -->
+        <operation name="takeUnits">
+            <input message="tns:takeUnitsRequest"/>
+            <output message="tns:takeUnitsResponse"/>
+        </operation>
+        <!-- Take settings from db. -->
+        <operation name="takeSettings">
+            <input message="tns:takeSettingsRequest"/>
+            <output message="tns:takeSettingsResponse"/>
+        </operation>
+        <!-- Method takes a product and its features -->
+        <operation name="takeProduct">
+            <input message="tns:takeProductRequest"/>
+            <output message="tns:takeProductResponse"/>
+        </operation>
+        <!--  The method used to search for products search magazynie.Podczas searches:
+        - Product name
+        - Product description
+        - Product code
+        - Product ID -->
+        <operation name="searchProducts">
+            <input message="tns:searchProductsRequest"/>
+            <output message="tns:searchProductsResponse"/>
+        </operation>
+        <operation name="getProductsChanges">
+            <input message="tns:getProductsChangesRequest"/>
+            <output message="tns:getProductsChangesResponse"/>
+        </operation>
+        <operation name="takeProductsByConditions">
+            <input message="tns:takeProductsByConditionsRequest"/>
+            <output message="tns:takeProductsByConditionsResponse"/>
+        </operation>
+        <operation name="searchProductsSimple">
+            <input message="tns:searchProductsSimpleRequest"/>
+            <output message="tns:searchProductsSimpleResponse"/>
+        </operation>
+        <operation name="searchProductsSimpleCount">
+            <input message="tns:searchProductsSimpleCountRequest"/>
+            <output message="tns:searchProductsSimpleCountResponse"/>
+        </operation>
+        <operation name="searchProductsByQuery">
+            <input message="tns:searchProductsByQueryRequest"/>
+            <output message="tns:searchProductsByQueryResponse"/>
+        </operation>
+        <operation name="takeStaticPage">
+            <input message="tns:takeStaticPageRequest"/>
+            <output message="tns:takeStaticPageResponse"/>
+        </operation>
+        <operation name="takePage">
+            <input message="tns:takePageRequest"/>
+            <output message="tns:takePageResponse"/>
+        </operation>
+        <operation name="updateProductSettings">
+            <input message="tns:updateProductSettingsRequest"/>
+            <output message="tns:updateProductSettingsResponse"/>
+        </operation>
+        <operation name="takeProductSettings">
+            <input message="tns:takeProductSettingsRequest"/>
+            <output message="tns:takeProductSettingsResponse"/>
+        </operation>
+        <operation name="takeInformation">
+            <input message="tns:takeInformationRequest"/>
+            <output message="tns:takeInformationResponse"/>
+        </operation>
+        <operation name="takePages">
+            <input message="tns:takePagesRequest"/>
+            <output message="tns:takePagesResponse"/>
+        </operation>
+        <operation name="takeInformations">
+            <input message="tns:takeInformationsRequest"/>
+            <output message="tns:takeInformationsResponse"/>
+        </operation>
+        <operation name="takeProducers">
+            <input message="tns:takeProducersRequest"/>
+            <output message="tns:takeProducersResponse"/>
+        </operation>
+        <operation name="takeProducer">
+            <input message="tns:takeProducerRequest"/>
+            <output message="tns:takeProducerResponse"/>
+        </operation>
+        <operation name="updateProducer">
+            <input message="tns:updateProducerRequest"/>
+            <output message="tns:updateProducerResponse"/>
+        </operation>
+        <operation name="updateInformation">
+            <input message="tns:updateInformationRequest"/>
+            <output message="tns:updateInformationResponse"/>
+        </operation>
+        <operation name="updateOrder">
+            <input message="tns:updateOrderRequest"/>
+            <output message="tns:updateOrderResponse"/>
+        </operation>
+    </portType>
+	
+    <binding name="GizaAPIBinding" type="tns:GizaAPIPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="createTicket">
+            <soap:operation soapAction="#createTicket_authorization" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="importCustomerData">
+            <soap:operation soapAction="#importCustomerData_integrations" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="removeCustomerData">
+            <soap:operation soapAction="#removeCustomerData_integrations" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="updateCustomerData">
+            <soap:operation soapAction="#updateCustomerData_integrations" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="importStatuses">
+            <soap:operation soapAction="#importStatuses_integrations" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="login">
+            <soap:operation soapAction="#login_users" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="sendImportXML">
+            <soap:operation soapAction="#sendImportXML_integrations" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getJournal">
+            <soap:operation soapAction="#getJournal_integrations" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="checkProductPhoto">
+            <soap:operation soapAction="#checkProductPhoto_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getProductCodeList">
+            <soap:operation soapAction="#getProductCodeList_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getReport">
+            <soap:operation soapAction="#getReport_integrations" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="confirmJournal">
+            <soap:operation soapAction="#confirmJournal_integrations" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getWebsiteConfiguration">
+            <soap:operation soapAction="#getWebsiteConfiguration_settings" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="saveProductTranslation">
+            <soap:operation soapAction="#saveProductTranslation_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="saveProductCategoryDispose">
+            <soap:operation soapAction="#saveProductCategoryDispose_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="changeOfferPrice">
+            <soap:operation soapAction="#changeOfferPrice_integrations" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="changeAllegroFID">
+            <soap:operation soapAction="#changeAllegroFID_integrations" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getPricesByOffer">
+            <soap:operation soapAction="#getPricesByOffer_integrations" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getClassifiedsPriceStats">
+            <soap:operation soapAction="#getClassifiedsPriceStats_integrations" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="takeProductVariants">
+            <soap:operation soapAction="#takeProductVariants_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getShopByDomain">
+            <soap:operation soapAction="#getShopByDomain_settings" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="takeCurrencyRate">
+            <soap:operation soapAction="#takeCurrencyRate_settings" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="takeNews">
+            <soap:operation soapAction="#takeNews_pages" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="takeBanners">
+            <soap:operation soapAction="#takeBanners_pages" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="takeProductPhotos">
+            <soap:operation soapAction="#takeProductPhotos_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="takeVariantAvailable">
+            <soap:operation soapAction="#takeVariantAvailable_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="takeVariantsStocks">
+            <soap:operation soapAction="#takeVariantsStocks_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="createUser">
+            <soap:operation soapAction="#saveClient_clients" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getImageByVariantId">
+            <soap:operation soapAction="#getImageByVariantId_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="createOrder">
+            <soap:operation soapAction="#createOrder_orders" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="createZeusOrder">
+            <soap:operation soapAction="#createZeusOrder_orders" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getOrder">
+            <soap:operation soapAction="#getOrder_orders" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getOrderXML">
+            <soap:operation soapAction="#getOrderXML_orders" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="changeOrderStatus">
+            <soap:operation soapAction="#changeOrderStatus_orders" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getPromotionPriceForPosition">
+            <soap:operation soapAction="#getPromotionPriceForPosition_orders" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getPromotionPriceByCodeIfDiscountCode">
+            <soap:operation soapAction="#getPromotionPriceByCodeIfDiscountCode_orders" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getPromotionPrice">
+            <soap:operation soapAction="#getPromotionPrice_orders" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="takeCategoriesTree">
+            <soap:operation soapAction="#takeCategoriesTree_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="takeProducers">
+            <soap:operation soapAction="#takeProducers_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="takeProducer">
+            <soap:operation soapAction="#takeProducer_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="updateProducer">
+            <soap:operation soapAction="#updateProducer_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="updateProduct">
+            <soap:operation soapAction="#updateProduct_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="saveProductPhoto">
+            <soap:operation soapAction="#saveProductPhoto_resources" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="removeOldStocksByWarehouse">
+            <soap:operation soapAction="#removeOldStocksByWarehouse_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="updateStocksByVariantCode">
+            <soap:operation soapAction="#updateStocksByVariantCode_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="updateStocksByCodeOrEan">
+            <soap:operation soapAction="#updateStocksByCodeOrEan_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="takeProduct">
+            <soap:operation soapAction="#takeApiProduct_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getProductsForIntegrations">
+            <soap:operation soapAction="#getProductsForIntegrations_integrations" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="takeTaxes">
+            <soap:operation soapAction="#takeTaxes_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="takeUnits">
+            <soap:operation soapAction="#takeUnits_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="takeSettings">
+            <soap:operation soapAction="#takeSettings_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="searchProducts">
+            <soap:operation soapAction="#searchProducts_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getProductsChanges">
+            <soap:operation soapAction="#getProductsChanges_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="takeProductsByConditions">
+            <soap:operation soapAction="#takeProductsByConditions_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="searchProductsSimple">
+            <soap:operation soapAction="#searchProductsSimple_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="searchProductsSimpleCount">
+            <soap:operation soapAction="#searchProductsSimpleCount_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="searchProductsByQuery">
+            <soap:operation soapAction="#searchProductsByQuery_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="takeStaticPage">
+            <soap:operation soapAction="#takeStaticPage_pages" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="takePage">
+            <soap:operation soapAction="#takePage_pages" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="updateProductSettings">
+            <soap:operation soapAction="#updateProductSettings_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="takeProductSettings">
+            <soap:operation soapAction="#takeProductSettings_warehouse" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="takeInformation">
+            <soap:operation soapAction="#takeInformation_pages" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="takePages">
+            <soap:operation soapAction="#takePages_pages" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="takeInformations">
+            <soap:operation soapAction="#takeInformations_pages" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="updateInformation">
+            <soap:operation soapAction="#updateInformation_pages" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="updateOrder">
+            <soap:operation soapAction="#updateOrder_orders" style="rpc"/>
+            <input>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:GizaAPI" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="GizaAPI">
+        <port name="GizaAPIPort" binding="tns:GizaAPIBinding">
+            <soap:address location="http://localhost:8000/pl/giza/api/server" />
+        </port>
+    </service>
+</definitions>

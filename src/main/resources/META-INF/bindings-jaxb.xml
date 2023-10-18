@@ -1,0 +1,22 @@
+<jaxb:bindings xmlns="https://jakarta.ee/xml/ns/jaxb"
+               xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb"
+               xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+               xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+               version="3.0"
+               jaxb:extensionBindingPrefixes="xjc">
+    <jaxb:globalBindings>
+        <xjc:simple/>
+        <xjc:superClass name="pl.redbay.ws.client.SoapEncEntity"/>
+        <jaxb:javaType name="java.lang.Long" xmlType="xsd:integer" />
+    </jaxb:globalBindings>
+
+    <jaxb:bindings schemaLocation="wsdl/redbay-soap.wsdl#types?schema1" node="//xsd:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="pl.redbay.ws.client.types" />
+        </jaxb:schemaBindings>
+        <jaxb:bindings multiple="true" node="./xsd:complexType[starts-with(@name, 'ArrayOf')]/xsd:sequence/xsd:element">
+            <!--jaxb:property generateIsSetMethod="true" name="list" /-->
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+</jaxb:bindings>
