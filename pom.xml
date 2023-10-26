@@ -124,14 +124,17 @@
                                 <bindingFile>${project.basedir}/src/main/resources/META-INF/bindings-jaxb.xml</bindingFile>
                             </bindingFiles>
                             <xjcArgs>
-                                <xjcArg>-Xjaxbindex</xjcArg>
                                 <xjcArg>-Xxew</xjcArg>
-                                <xjcArg>-Xxew:instantiate lazy</xjcArg>
+                                <xjcArg>-Xxew:instantiate early</xjcArg>
                                 <xjcArg>-XsimpleEquals</xjcArg>
                                 <xjcArg>-XsimpleToString</xjcArg>
+                                <!--xjcArg>-XsimpleToString-showChildItems=true</xjcArg-->
+                                <xjcArg>-XsimpleToString-showFieldNames=true</xjcArg>
+                                <xjcArg>-XsimpleToString-fullClassName=true</xjcArg>
                                 <xjcArg>-XsimpleHashCode</xjcArg>
                                 <xjcArg>-XfluentAPI</xjcArg>
-                                <xjcArg>-XvalueConstructor</xjcArg>
+                                <xjcArg>-XfluentAPI-fluentMethodPrefix=with</xjcArg>
+                                <!--xjcArg>-XvalueConstructor</xjcArg-->
                                 <xjcArg>-Xinheritance</xjcArg>
                             </xjcArgs>
                             <sourceDestDir>${project.build.directory}/generated-sources/jaxws</sourceDestDir>

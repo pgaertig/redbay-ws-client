@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="urn:GizaAPI"
+                   xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+                   xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+    <SOAP-ENV:Body>
+        <ns1:getProductsChangesResponse>
+            <result SOAP-ENC:arrayType="ns1:Change[2918]" xsi:type="SOAP-ENC:Array">
+                <item xsi:type="ns1:Change">
+                    <id xsi:type="xsd:integer">484462356</id>
+                    <active xsi:type="xsd:string">I</active>
+                    <price xsi:nil="true"/>
+                    <modified xsi:type="xsd:dateTime">2023-06-07 10:22:25</modified>
+                </item>
+                <item xsi:type="ns1:Change">
+                    <id xsi:type="xsd:integer">484462357</id>
+                    <active xsi:type="xsd:string">I</active>
+                    <price xsi:type="xsd:decimal">40.6500</price>
+                    <modified xsi:type="xsd:dateTime">2023-10-25 15:36:28</modified>
+                </item>
+                <item xsi:type="ns1:Change">
+                    <id xsi:type="xsd:integer">484462358</id>
+                    <active xsi:type="xsd:string">I</active>
+                    <price xsi:type="xsd:decimal">81.2200</price>
+                    <modified xsi:type="xsd:dateTime">2023-10-25 15:36:16</modified>
+                </item>
+                <item xsi:type="ns1:Change">
+                    <id xsi:type="xsd:integer">484462359</id>
+                    <active xsi:type="xsd:string">I</active>
+                    <price xsi:type="xsd:decimal">64.9600</price>
+                    <modified xsi:type="xsd:dateTime">2023-10-25 15:36:21</modified>
+                </item>
+                <item xsi:type="ns1:Change">
+                    <id xsi:type="xsd:integer">484462360</id>
+                    <active xsi:type="xsd:string">I</active>
+                    <price xsi:type="xsd:decimal">97.5600</price>
+                    <modified xsi:type="xsd:dateTime">2023-10-25 15:25:27</modified>
+                </item>
+                <item xsi:type="ns1:Change">
+                    <id xsi:type="xsd:integer">484462361</id>
+                    <active xsi:type="xsd:string">I</active>
+                    <price xsi:nil="true"/>
+                    <modified xsi:type="xsd:dateTime">2023-10-25 15:25:29</modified>
+                </item>
+                <item xsi:type="ns1:Change">
+                    <id xsi:type="xsd:integer">484462362</id>
+                    <active xsi:type="xsd:string">I</active>
+                    <price xsi:type="xsd:decimal">64.2300</price>
+                    <modified xsi:type="xsd:dateTime">2023-06-07 10:22:25</modified>
+                </item>
+                <item xsi:type="ns1:Change">
+                    <id xsi:type="xsd:integer">484462363</id>
+                    <active xsi:type="xsd:string">I</active>
+                    <price xsi:type="xsd:decimal">273.1700</price>
+                    <modified xsi:type="xsd:dateTime">2023-06-07 10:22:25</modified>
+                </item>
+                <item xsi:type="ns1:Change">
+                    <id xsi:type="xsd:integer">484462364</id>
+                    <active xsi:type="xsd:string">I</active>
+                    <price xsi:type="xsd:decimal">85.3700</price>
+                    <modified xsi:type="xsd:dateTime">2023-06-07 10:22:25</modified>
+                </item>
+                <item xsi:type="ns1:Change">
+                    <id xsi:type="xsd:integer">484462365</id>
+                    <active xsi:type="xsd:string">I</active>
+                    <price xsi:type="xsd:decimal">85.3700</price>
+                    <modified xsi:type="xsd:dateTime">2023-06-07 10:22:25</modified>
+                </item>
+                <item xsi:type="ns1:Change">
+                    <id xsi:type="xsd:integer">484462366</id>
+                    <active xsi:type="xsd:string">I</active>
+                    <price xsi:type="xsd:decimal">44.7200</price>
+                    <modified xsi:type="xsd:dateTime">2023-06-07 10:22:25</modified>
+                </item>
+                <item xsi:type="ns1:Change">
+                    <id xsi:type="xsd:integer">484462367</id>
+                    <active xsi:type="xsd:string">I</active>
+                    <price xsi:type="xsd:decimal">38.2100</price>
+                    <modified xsi:type="xsd:dateTime">2023-06-07 10:22:25</modified>
+                </item>
+                <item xsi:type="ns1:Change">
+                    <id xsi:type="xsd:integer">484462368</id>
+                    <active xsi:type="xsd:string">I</active>
+                    <price xsi:nil="true"/>
+                    <modified xsi:type="xsd:dateTime">2023-06-07 10:22:25</modified>
+                </item>
+                <item xsi:type="ns1:Change">
+                    <id xsi:type="xsd:integer">484462369</id>
+                    <active xsi:type="xsd:string">I</active>
+                    <price xsi:nil="true"/>
+                    <modified xsi:type="xsd:dateTime">2023-10-25 15:37:00</modified>
+                </item>
+                <item xsi:type="ns1:Change">
+                    <id xsi:type="xsd:integer">484462370</id>
+                    <active xsi:type="xsd:string">I</active>
+                    <price xsi:type="xsd:decimal">54.3900</price>
+                    <modified xsi:type="xsd:dateTime">2023-10-25 15:36:35</modified>
+                </item>
+                <item xsi:type="ns1:Change">
+                    <id xsi:type="xsd:integer">484462371</id>
+                    <active xsi:type="xsd:string">I</active>
+                    <price xsi:type="xsd:decimal">269.1100</price>
+                    <modified xsi:type="xsd:dateTime">2023-10-25 15:36:39</modified>
+                </item>
+                <item xsi:type="ns1:Change">
+                    <id xsi:type="xsd:integer">484462372</id>
+                    <active xsi:type="xsd:string">I</active>
+                    <price xsi:nil="true"/>
+                    <modified xsi:type="xsd:dateTime">2023-10-25 15:37:26</modified>
+                </item>
+                <item xsi:type="ns1:Change">
+                    <id xsi:type="xsd:integer">484462373</id>
+                    <active xsi:type="xsd:string">I</active>
+                    <price xsi:nil="true"/>
+                    <modified xsi:type="xsd:dateTime">2023-06-07 10:22:25</modified>
+                </item>
+                <item xsi:type="ns1:Change">
+                    <id xsi:type="xsd:integer">484462374</id>
+                    <active xsi:type="xsd:string">I</active>
+                    <price xsi:type="xsd:decimal">27.6900</price>
+                    <modified xsi:type="xsd:dateTime">2023-10-25 15:25:25</modified>
+                </item>
+            </result>
+        </ns1:getProductsChangesResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

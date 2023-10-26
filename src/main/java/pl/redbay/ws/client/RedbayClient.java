@@ -6,10 +6,12 @@ import org.slf4j.LoggerFactory;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Objects;
-import java.util.Optional;
-import com.sun.xml.ws.developer.*;
 
+
+/**
+ * @deprecated Use {@link RedbayCxfClient} which handles id/href references correctly
+ */
+@Deprecated
 public class RedbayClient {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RedbayClient.class);
@@ -41,12 +43,12 @@ public class RedbayClient {
         return gizaAPIPortType;
     }
 
-    void setAddressLocation(String url) {
+    public void setAddressLocation(String url) {
         BindingProvider bp = (BindingProvider) gizaAPIPortType;
         bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, url);
     }
 
-    void enableSoapLogging() {
+    public void enableSoapLogging() {
         if(gizaAPIPortType instanceof BindingProvider) {
             BindingProvider bp = (BindingProvider) gizaAPIPortType;
             LOGGER.info("Installing logger");

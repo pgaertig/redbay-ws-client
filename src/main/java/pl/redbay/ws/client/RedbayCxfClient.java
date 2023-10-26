@@ -1,10 +1,19 @@
 package pl.redbay.ws.client;
 
+import jakarta.xml.bind.Unmarshaller;
+import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.feature.transform.XSLTFeature;
+import org.apache.cxf.jaxb.JAXBDataBinding;
+import org.apache.cxf.jaxws.JaxWsClientFactoryBean;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
+import org.apache.cxf.jaxws.support.JaxWsServiceFactoryBean;
+import org.apache.cxf.staxutils.StaxUtils;
+import org.glassfish.jaxb.runtime.IDResolver;
 
 import javax.xml.namespace.QName;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class RedbayCxfClient {
 
@@ -20,8 +29,8 @@ public class RedbayCxfClient {
     }
 
     public RedbayCxfClient(String wsdlUrl, String serviceAddress, boolean logging) {
+        System.setProperty(StaxUtils.MAX_ELEMENT_DEPTH, "1000");
         JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
-
         if(wsdlUrl != null && serviceAddress == null) {
             serviceAddress = wsdlUrl.replace("/server.wsdl","/pl/giza/api/server");
         }
@@ -33,28 +42,16 @@ public class RedbayCxfClient {
         factory.setEndpointName(new QName("urn:GizaAPI", "GizaAPIPort"));
         factory.setServiceClass(GizaAPIPortType.class);
 
-
+        /* Enable in case JAXB IDResolver solution doesn't work with id/href php soap responses
         XSLTFeature xsltFeature = new XSLTFeature();
         xsltFeature.setInXSLTPath("pl/redbay/ws/client/multi-ref-flatten.xsl");
-        factory.setFeatures(List.of(xsltFeature));
+        factory.setFeatures(List.of(xsltFeature)); */
 
-/*        factory.setDataBinding(new JAXBDataBinding());
-        JAXBDataBinding dataBinding = (JAXBDataBinding) factory.getDataBinding();
-        dataBinding.setUnmarshallerListener(new Unmarshaller.Listener() {
-            @Override
-            public void beforeUnmarshal(Object target, Object parent) {
-                target.equals(parent);
+        JAXBDataBinding jaxbDataBinding= new JAXBDataBinding();
+        jaxbDataBinding.setUnmarshallerProperties(Map.of(IDResolver.class.getName(), new SoapEncodedIDResolver()));
+        factory.setDataBinding(jaxbDataBinding);
 
-            }
-
-            @Override
-            public void afterUnmarshal(Object target, Object parent) {
-                target.equals(parent);
-            }
-        });
-*/
-
-        gizaAPIPortType = (GizaAPIPortType) factory.create();
+        gizaAPIPortType = factory.create(GizaAPIPortType.class);
     }
 
     public GizaAPIPortType getAPI() {

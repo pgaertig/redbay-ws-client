@@ -8,6 +8,8 @@
         <xjc:simple/>
         <xjc:superClass name="pl.redbay.ws.client.SoapEncEntity"/>
         <jaxb:javaType name="java.lang.Long" xmlType="xsd:integer" />
+        <xjc:javaType name="java.time.LocalDateTime" xmlType="xsd:dateTime"
+                      adapter="pl.redbay.ws.client.LocalDateTimeAdapter" />
     </jaxb:globalBindings>
 
     <jaxb:bindings schemaLocation="wsdl/redbay-soap.wsdl#types?schema1" node="//xsd:schema">
