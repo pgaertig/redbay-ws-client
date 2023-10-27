@@ -7,7 +7,8 @@
     <jaxb:globalBindings>
         <xjc:simple/>
         <xjc:superClass name="pl.redbay.ws.client.SoapEncEntity"/>
-        <jaxb:javaType name="java.lang.Long" xmlType="xsd:integer" />
+        <xjc:javaType name="java.lang.Long" xmlType="xsd:integer"
+                      adapter="pl.redbay.ws.client.LongAdapter" />
         <xjc:javaType name="java.time.LocalDateTime" xmlType="xsd:dateTime"
                       adapter="pl.redbay.ws.client.LocalDateTimeAdapter" />
     </jaxb:globalBindings>

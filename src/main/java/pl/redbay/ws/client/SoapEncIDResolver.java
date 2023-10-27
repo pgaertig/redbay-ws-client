@@ -8,9 +8,10 @@ import java.util.HashMap;
 import java.util.concurrent.Callable;
 
 /**
- * Thread safe
+ * Thread safe SOAP-Encoded reference resolver.
+ * Matches e.g. href="#ref1" with id="ref1"
  */
-class SoapEncodedIDResolver extends IDResolver {
+class SoapEncIDResolver extends IDResolver {
 
     private ThreadLocal<HashMap<String, Object>> idMap = ThreadLocal.withInitial(HashMap::new);
 

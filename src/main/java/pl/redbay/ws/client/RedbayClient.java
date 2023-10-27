@@ -7,7 +7,6 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-
 /**
  * @deprecated Use {@link RedbayCxfClient} which handles id/href references correctly
  */
