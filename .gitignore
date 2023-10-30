@@ -1,0 +1,7 @@
+.idea
+*.jar
+**/*.log
+*.hprof
+data/*
+target/
+**/*.config.properties
