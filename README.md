@@ -3,7 +3,7 @@
 Please consult Redbay Integration Platform documentation to obtain details on the Redbay API calls.
 
 # Build
-This project requires Java JDK 11 and is not yet released on Maven Central. To build locally run the bellow:
+This project requires Java JDK 11 and is not yet released on Maven Central. To build locally run the below:
 
     mvn clean install
 
@@ -20,13 +20,28 @@ Add this dependency to your project `pom.xml`:
 ```
 # Development usage
 
-There is interactive JRuby client available to test calls:
+There is interactive JRuby client available to test calls.
+For the first time install JRuby and `pry` gem.
 
+```bash
+asdf plugin-add ruby
+JAVA_HOME=$(asdf where java) asdf install ruby
+gem install pry --no-ri --no-rdoc
+```
+Then run the client script:
 ```bash
 ./dev/redbay-client.rb rb-client.config.properties
 ```
 
-See [RedbayClientTest](src/test/java/pl/redbay/ws/client/RedbayClientTest.java) for an example invocations.
+Example invocation:
+```
+[1] pry(#<RedbayCli>)> a = api.getProductsChanges(ticket, LocalDateTime.of(2000, 1, 1, 0, 0))
+=> #<Java::PlRedbayWsClientTypes::ArrayOfChanges:0x123307c4>
+[2] pry(#<RedbayCli>)> a.items.size
+=> 2928
+```
+
+See [RedbayClientTest](src/test/java/pl/redbay/ws/client/RedbayClientTest.java) for invocation examples.
 
 # License
 
