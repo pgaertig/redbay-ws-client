@@ -106,7 +106,7 @@ public class RedbayClientTest {
 
         Product product = api.takeProduct(ticket, 484462356, "");
         assertEquals(484462356, product.getId());
-        assertEquals(1023903073, product.getVariants().get(0).getId());
+        assertEquals(1023903073, product.getVariants().getItems().get(0).getId());
     }
 
     private String requestBodyFile(String name) {

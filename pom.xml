@@ -124,8 +124,8 @@
                                 <bindingFile>${project.basedir}/src/main/resources/META-INF/bindings-jaxb.xml</bindingFile>
                             </bindingFiles>
                             <xjcArgs>
-                                <xjcArg>-Xxew</xjcArg>
-                                <xjcArg>-Xxew:instantiate early</xjcArg>
+                                <!--xjcArg>-Xxew</xjcArg>
+                                <xjcArg>-Xxew:instantiate early</xjcArg-->
                                 <xjcArg>-XsimpleEquals</xjcArg>
                                 <xjcArg>-XsimpleToString</xjcArg>
                                 <!--xjcArg>-XsimpleToString-showChildItems=true</xjcArg-->

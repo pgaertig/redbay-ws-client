@@ -17,9 +17,9 @@
         <jaxb:schemaBindings>
             <jaxb:package name="pl.redbay.ws.client.types" />
         </jaxb:schemaBindings>
-        <jaxb:bindings multiple="true" node="./xsd:complexType[starts-with(@name, 'ArrayOf')]/xsd:sequence/xsd:element">
+        <!--jaxb:bindings multiple="true" node="./xsd:complexType[starts-with(@name, 'ArrayOf')]/xsd:sequence/xsd:element"-->
             <!--jaxb:property generateIsSetMethod="true" name="list" /-->
-        </jaxb:bindings>
+        <!--/jaxb:bindings-->
     </jaxb:bindings>
 
 </jaxb:bindings>
