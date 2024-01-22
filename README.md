@@ -1,5 +1,7 @@
 # Redbay WebServices Client (SOAP)
 
+[![Java CI with Maven](https://github.com/pgaertig/redbay-ws-client/actions/workflows/maven.yml/badge.svg)](https://github.com/pgaertig/redbay-ws-client/actions/workflows/maven.yml)
+
 Please consult Redbay Integration Platform documentation to obtain details on the Redbay API calls.
 
 # Build
