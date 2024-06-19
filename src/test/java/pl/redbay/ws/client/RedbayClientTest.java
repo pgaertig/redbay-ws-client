@@ -5,12 +5,12 @@ import com.github.tomakehurst.wiremock.common.ConsoleNotifier;
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import pl.redbay.ws.client.types.ArrayOfChanges;
-import pl.redbay.ws.client.types.Product;
-import pl.redbay.ws.client.types.ProductCodeCollection;
-import pl.redbay.ws.client.types.Ticket;
+import pl.redbay.ws.client.types.RbArrayOfChanges;
+import pl.redbay.ws.client.types.RbProduct;
+import pl.redbay.ws.client.types.RbProductCodeCollection;
+import pl.redbay.ws.client.types.RbTicket;
+
 
 import javax.xml.datatype.DatatypeFactory;
 import java.io.IOException;
@@ -61,7 +61,7 @@ public class RedbayClientTest {
 
     @Test
     public void test_createTicket() {
-        Ticket ticket = api.createTicket("REDBAYA-987654321", 123, "123456789");
+        RbTicket ticket = api.createTicket("REDBAYA-987654321", 123, "123456789");
         assertThat(ticket.getShopName(), is("ShoppingMall"));
     }
 
@@ -73,8 +73,8 @@ public class RedbayClientTest {
                 .withRequestBody(equalToXml(requestBodyFile("getProductCodeList-request.xml")))
                 .willReturn(aResponse().withBodyFile("getProductCodeList-response.xml")));
 
-        Ticket ticket = api.createTicket("REDBAYA-987654321", 123, "123456789");
-        ProductCodeCollection productCodes = api.getProductCodeList(ticket);
+        RbTicket ticket = api.createTicket("REDBAYA-987654321", 123, "123456789");
+        RbProductCodeCollection productCodes = api.getProductCodeList(ticket);
         assertThat(productCodes, notNullValue());
         assertThat(productCodes.getItems().size(), is(equalTo(8)));
     }
@@ -87,15 +87,15 @@ public class RedbayClientTest {
                 .withRequestBody(equalToXml(requestBodyFile("getProductsChanges-request.xml")))
                 .willReturn(aResponse().withBodyFile("getProductsChanges-response.xml")));
 
-        Ticket ticket = api.createTicket("REDBAYA-987654321", 123, "123456789");
+        RbTicket ticket = api.createTicket("REDBAYA-987654321", 123, "123456789");
 
-        ArrayOfChanges changes = api.getProductsChanges(ticket, LocalDateTime.of(2000, 1, 1, 0, 0));
+        RbArrayOfChanges changes = api.getProductsChanges(ticket, LocalDateTime.of(2000, 1, 1, 0, 0));
         assertEquals(19, changes.getItems().size());
     }
 
     @Test
     public void test_takeProduct() {
-        Ticket ticket = api.createTicket("REDBAYA-987654321", 123, "123456789");
+        RbTicket ticket = api.createTicket("REDBAYA-987654321", 123, "123456789");
 
         wireMockServer.stubFor(post(urlPathEqualTo("/pl/giza/api/server"))
                 .withHeader("Content-Type", containing("text/xml"))
@@ -104,7 +104,7 @@ public class RedbayClientTest {
                 .willReturn(aResponse().withBodyFile("takeProduct-1-response.xml")));
 
 
-        Product product = api.takeProduct(ticket, 484462356, "");
+        RbProduct product = api.takeProduct(ticket, 484462356, "");
         assertEquals(484462356, product.getId());
         assertEquals(1023903073, product.getVariants().getItems().get(0).getId());
     }
