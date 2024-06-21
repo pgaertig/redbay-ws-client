@@ -1167,7 +1167,7 @@
         <part name="order" type="tns:Order"/>
     </message>
     <message name="createOrderResponse">
-        <part name="result" type="xsd:integer"/>
+        <part name="result" type="xsd:string" />
     </message>
     <message name="createZeusOrderRequest">
         <part name="zeusUserId" type="xsd:string"/>

@@ -1,11 +1,13 @@
 package pl.redbay.ws.client;
 
+import org.apache.cxf.feature.transform.XSLTFeature;
 import org.apache.cxf.jaxb.JAXBDataBinding;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.apache.cxf.staxutils.StaxUtils;
 import org.glassfish.jaxb.runtime.IDResolver;
 
 import javax.xml.namespace.QName;
+import java.util.List;
 import java.util.Map;
 
 public class RedbayCxfClient {
@@ -35,10 +37,9 @@ public class RedbayCxfClient {
         factory.setEndpointName(new QName("urn:GizaAPI", "GizaAPIPort"));
         factory.setServiceClass(GizaAPIPortType.class);
 
-        /* Enable in case JAXB IDResolver solution doesn't work with some id/href php soap responses
         XSLTFeature xsltFeature = new XSLTFeature();
-        xsltFeature.setInXSLTPath("pl/redbay/ws/client/multi-ref-flatten.xsl");
-        factory.setFeatures(List.of(xsltFeature)); */
+        xsltFeature.setInXSLTPath("pl/redbay/ws/client/xsi-type-removal.xsl");
+        factory.setFeatures(List.of(xsltFeature));
 
         JAXBDataBinding jaxbDataBinding= new JAXBDataBinding();
         jaxbDataBinding.setUnmarshallerProperties(Map.of(IDResolver.class.getName(), new SoapEncIDResolver()));
